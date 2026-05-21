@@ -1,3 +1,6 @@
+import { auth } from "@clerk/nextjs/server"
+import { redirect } from "next/navigation"
+
 import {
   Banknote,
   CalendarDays,
@@ -35,7 +38,15 @@ const statusClassName = (status: string) => {
   return "border-rose-200 bg-rose-50 text-rose-700";
 };
 
-export default function AdminDashboardPage() {
+export default async function AdminDashboardPage() {
+  const { sessionClaims } = await auth()
+  const claims = sessionClaims as Record<string, unknown> | null | undefined
+  const role = typeof claims?.role === "string" ? claims.role : "EMPLOYEE"
+
+  if (role !== "ADMIN") {
+    redirect("/dashboard")
+  }
+
   return (
     <main className="min-h-screen bg-zinc-950 px-4 py-6 text-zinc-50 md:px-8">
       <section className="mx-auto flex w-full max-w-7xl flex-col gap-6">

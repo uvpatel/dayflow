@@ -7,7 +7,6 @@ import {
   IconChecklist,
   IconSettings,
   IconHelp,
-  IconSearch,
   IconReport,
   IconFileInvoice,
   IconUser,
@@ -81,6 +80,11 @@ export const getSidebarData = (role: UserRole) => ({
 
   navSecondary: [
     {
+      title: "Profile",
+      url: "/dashboard/profile",
+      icon: IconUser,
+    },
+    {
       title: "Settings",
       url: "/dashboard/settings",
       icon: IconSettings,
@@ -89,11 +93,6 @@ export const getSidebarData = (role: UserRole) => ({
       title: "Help",
       url: "/dashboard/help",
       icon: IconHelp,
-    },
-    {
-      title: "Search",
-      url: "/dashboard/search",
-      icon: IconSearch,
     },
   ],
 

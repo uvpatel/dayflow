@@ -1,12 +1,14 @@
 "use client"
 
 import * as React from "react"
+import Link from "next/link"
 import { IconInnerShadowTop } from "@tabler/icons-react"
 
 import { NavDocuments } from "@/components/nav-documents"
 import { NavMain } from "@/components/nav-main"
 import { NavSecondary } from "@/components/nav-secondary"
 import { NavUser } from "@/components/nav-user"
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient"
 import {
   Sidebar,
   SidebarContent,
@@ -17,11 +19,22 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 
-import { getSidebarData } from "@/config/sidebar-data"
-import { useAuthStore } from "@/store/useAuthStore"
+import { getSidebarData, type UserRole } from "@/config/sidebar-data"
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const role = useAuthStore((s) => s.user?.role ?? "EMPLOYEE")
+export type DashboardUser = {
+  name: string
+  email: string
+  avatar: string
+}
+
+export function AppSidebar({
+  role,
+  user,
+  ...props
+}: React.ComponentProps<typeof Sidebar> & {
+  role: UserRole
+  user: DashboardUser
+}) {
   const data = getSidebarData(role)
 
   return (
@@ -40,6 +53,19 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
+        <div className="px-2 pt-2 group-data-[collapsible=icon]:hidden">
+          <HoverBorderGradient
+            as={Link}
+            href="/dashboard/leaves"
+            containerClassName="w-full"
+            className="w-full rounded-2xl bg-transparent px-0 py-0"
+          >
+            <div className="rounded-[inherit] bg-sidebar px-4 py-2 text-left text-sm">
+              <p className="font-medium text-sidebar-foreground">Leave Center</p>
+              <p className="text-xs text-sidebar-foreground/70">Apply, approve, and track time off</p>
+            </div>
+          </HoverBorderGradient>
+        </div>
       </SidebarHeader>
 
       <SidebarContent>
@@ -49,7 +75,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarContent>
 
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser user={user ?? data.user} role={role} />
       </SidebarFooter>
     </Sidebar>
   )
