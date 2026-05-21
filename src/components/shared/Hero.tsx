@@ -2,7 +2,6 @@
 
 import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect";
 import { HeroButton } from "./herobutton";
-import TextType from "../TextType";
 import BlurText from "../BlurText";
 
 export default function Hero() {
@@ -19,13 +18,13 @@ export default function Hero() {
                         cursorCharacter="|"
                     /> */}
                     <BlurText
-                        text="The all-in-one HRMS platform."
+                        text="Dayflow"
                         direction="bottom"
                         className="text-3xl flex justify-center font-extrabold md:text-2xl lg:text-5xl"
                     />
                 </h2 >
                 <p className="relative z-10 mx-auto mt-4 max-w-xl text-center text-neutral-800 dark:text-neutral-500">
-                    The all-in-one HRMS platform designed to streamline attendance, payroll, and team management. Built for modern teams who value clarity and speed.
+                    Every workday, perfectly aligned. Streamline employee onboarding, profiles, attendance, leave approvals, and payroll visibility in one secure HRMS.
                 </p>
                 <HeroButton />
                 

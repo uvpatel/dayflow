@@ -1,6 +1,4 @@
 "use client";
-import { cn } from "@/lib/utils";
-
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import {
   IconArrowWaveRightUp,
@@ -19,8 +17,8 @@ export function FetureSection() {
         <section>
 
             <p className="relative z-10 mx-auto m-4 p-2 max-w-xl text-center text-neutral-800 dark:text-neutral-500">
-                Everything you need to run your team.
-                Stop juggling spreadsheets and disparate tools. Dayflow brings everything into one unified operating system.
+                Everything HR teams need to run the workday.
+                Dayflow brings employee records, attendance, leave, approvals, and payroll visibility into one operating system.
             </p>
             <BentoGrid className="max-w-4xl mx-auto">
                 {items.map((item, i) => (
@@ -44,44 +42,44 @@ const Skeleton = () => (
 );
 const items = [
     {
-        title: "The Dawn of Innovation",
-        description: "Team Management Onboard, manage, and offboard employees with automated workflows and self-serve profiles.",
+        title: "Employee Profiles",
+        description: "Maintain personal details, job information, documents, profile pictures, and controlled employee edits.",
         header: <Skeleton />,
         icon: <IconUser className="h-4 w-4 text-neutral-500" />,
     },
     {
-        title: "The Digital Revolution",
-        description: "Dive into the transformative power of technology.",
+        title: "Attendance Tracking",
+        description: "Support daily and weekly attendance views with check-in, check-out, present, absent, half-day, and leave states.",
         header: <Skeleton />,
         icon: <IconZeppelin className="h-4 w-4 text-neutral-500" />,
     },
     {
-        title: "Smart Payroll",
-        description: "Automate salary calculations, tax deductions, and payslip generation with zero errors.",
+        title: "Payroll Visibility",
+        description: "Give employees read-only salary details while HR officers review and update salary structures.",
         header: <Skeleton />,
         icon: <IconChartBar className="h-4 w-4 text-neutral-500" />,
     },
     {
-        title: "Bank-Grade Security",
-        description: "Your data is encrypted at rest and in transit. Role-based access control keeps sensitive info safe.",
+        title: "Role-Based Access",
+        description: "Separate Admin, HR Officer, and Employee access so sensitive data stays visible only to the right users.",
         header: <Skeleton />,
         icon: < IconShieldCheck className="h-4 w-4 text-neutral-500" />,
     },
     {
-        title: "Instant Actions",
-        description: "Approve leaves, mark attendance, and generate reports in milliseconds.",
+        title: "Approval Workflows",
+        description: "Review leave requests, approve or reject time-off, add HR comments, and reflect decisions immediately.",
         header: <Skeleton />,
         icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
     },
     {
-        title: "Compliance Ready",
-        description: "Stay compliant with local labor laws automatically. We handle the complexity for you.",
+        title: "Reports Ready",
+        description: "Prepare attendance reports and salary slip views for future analytics and notification workflows.",
         header: <Skeleton />,
         icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
     },
     {
-        title: "Modern Design",
-        description: "Embark on exciting journeys and thrilling discoveries.",
+        title: "Secure Authentication",
+        description: "Support sign up, sign in, email verification, password rules, and protected dashboard access.",
         header: <Skeleton />,
         icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
     },
